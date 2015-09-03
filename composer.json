@@ -1,0 +1,13 @@
+{
+    "name": "rareloop/primer-template-engine-twig",
+    "description": "Twig template engine for Primer",
+    
+    "require": {
+        "twig/twig": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rareloop\\Primer\\TemplateEngine\\Twig\\": "src/Twig"
+        }
+    }
+}
