@@ -21,7 +21,7 @@ class Twig extends \Twig_Environment
         // Create the engine with the correct cache path and set it to 
         // invalidate the cache when a template changes
         parent::__construct($loader, array(
-            'cache' => Primer::$BASE_PATH.'/cache',
+            'cache' => Primer::$CACHE_PATH,
             'auto_reload' => true,
         ));
 

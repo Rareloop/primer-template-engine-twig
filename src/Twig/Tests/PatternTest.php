@@ -11,7 +11,10 @@ class PatternTest extends \PHPUnit_Framework_TestCase
      */
     public function setup()
     {
-        $this->primer = \Rareloop\Primer\Primer::start(__DIR__.'/primer-test', '\Rareloop\Primer\TemplateEngine\Twig\Template');
+        $this->primer = \Rareloop\Primer\Primer::start(array(
+            'basePath' => __DIR__.'/primer-test', 
+            'templateClass' => '\Rareloop\Primer\TemplateEngine\Twig\Template'
+        ));
 
         /**
          * Listen for when new Template engines are created
