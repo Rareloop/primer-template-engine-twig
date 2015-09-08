@@ -39,7 +39,7 @@ class Twig extends \Twig_Environment
         if (!isset(self::$_instance)) {
             self::$_instance = new Twig();
 
-            Event::fire('twig.new', self::$_instance);
+            Event::fire('twig.init', self::$_instance);
         }
 
         return self::$_instance;
