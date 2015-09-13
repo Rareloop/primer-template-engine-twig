@@ -13,7 +13,7 @@ class Template extends PrimerTemplate
      *
      * @var array
      */
-    protected $extension = 'twig';
+    public static $extension = 'twig';
 
     /**
      * Render this template with the provided data
@@ -36,6 +36,6 @@ class Template extends PrimerTemplate
         $path = str_replace(Primer::$BASE_PATH, '', $this->directory);
 
         // Render the template
-        return $engine->render($path . '/'. $this->filename . '.' . $this->extension, $data->toArray());
+        return $engine->render($path . '/'. $this->filename . '.' . self::$extension, $data->toArray());
     }
 }

@@ -21,7 +21,7 @@ class Twig extends \Twig_Environment
         // Create the engine with the correct cache path and set it to 
         // invalidate the cache when a template changes
         parent::__construct($loader, array(
-            'cache' => Primer::$BASE_PATH.'/cache',
+            'cache' => Primer::$CACHE_PATH,
             'auto_reload' => true,
         ));
 
@@ -39,7 +39,7 @@ class Twig extends \Twig_Environment
         if (!isset(self::$_instance)) {
             self::$_instance = new Twig();
 
-            Event::fire('twig.new', self::$_instance);
+            Event::fire('twig.init', self::$_instance);
         }
 
         return self::$_instance;
