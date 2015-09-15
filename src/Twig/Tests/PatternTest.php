@@ -12,7 +12,7 @@ class PatternTest extends \PHPUnit_Framework_TestCase
     public function setup()
     {
         $this->primer = \Rareloop\Primer\Primer::start(array(
-            'basePath' => __DIR__.'/primer-test', 
+            'basePath' => __DIR__.'/primer-test',
             'templateClass' => '\Rareloop\Primer\TemplateEngine\Twig\Template'
         ));
 
@@ -81,6 +81,16 @@ class PatternTest extends \PHPUnit_Framework_TestCase
     public function testCustomIncludeFunctionWithInlineData()
     {
         $output = $this->primer->getPatterns(array('components/test-group/include-inline-data'), false);
+
+        $this->assertEquals($output, 'Inlined data');
+    }
+
+    /**
+     * Test when a pattern is included that itself has default data but the parent pattern overrides the data with a variable
+     */
+    public function testCustomIncludeFunctionWithInlineDataAsVariable()
+    {
+        $output = $this->primer->getPatterns(array('components/test-group/include-inline-data-as-variable'), false);
 
         $this->assertEquals($output, 'Inlined data');
     }

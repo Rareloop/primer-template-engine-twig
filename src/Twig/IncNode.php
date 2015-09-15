@@ -41,7 +41,7 @@ class IncNode extends \Twig_Node_Include
             ->subcompile($this->getNode('expr'))
             ->raw(";\n")
 
-            // Check to see if we should be loading the template from a parent 
+            // Check to see if we should be loading the template from a parent
             // template (e.g. we have a ~ in the name)
             ->write('if (strpos($patternId, "~") !== false) {' . "\n")
             ->indent()
@@ -73,8 +73,9 @@ class IncNode extends \Twig_Node_Include
 
         if (null !== $this->getNode('variables')) {
             $compiler
-                ->raw(', ')
+                ->raw(', json_decode(json_encode(')
                 ->subcompile($this->getNode('variables'))
+                ->raw('), true)')
             ;
         }
 
