@@ -73,9 +73,9 @@ class IncNode extends \Twig_Node_Include
 
         if (null !== $this->getNode('variables')) {
             $compiler
-                ->raw(', json_decode(json_encode(')
+                ->raw(', ($customContext = json_decode(json_encode(')
                 ->subcompile($this->getNode('variables'))
-                ->raw('), true)')
+                ->raw('), true)) ? $customContext : array()')
             ;
         }
 

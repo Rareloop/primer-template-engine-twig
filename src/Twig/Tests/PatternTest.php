@@ -96,6 +96,16 @@ class PatternTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test when a pattern is included that itself has default data but the parent pattern overrides the data with a variable but the variable is not set in the context
+     */
+    public function testCustomIncludeFunctionWithInlineDataNotSet()
+    {
+        $output = $this->primer->getPatterns(array('components/test-group/include-inline-not-set'), false);
+
+        $this->assertEquals($output, 'Title autoloaded from data.json');
+    }
+
+    /**
      * Test that including an aliased pattern finds the template.twig file from the parent
      */
     public function testCustomIncludeWithAliasedPattern()
