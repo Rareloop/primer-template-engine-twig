@@ -1,9 +1,9 @@
 <?php namespace Rareloop\Primer\TemplateEngine\Twig;
 
-use Rareloop\Primer\FileSystem;
 use Rareloop\Primer\TemplateEngine\Twig\IncTokenParser;
 use Rareloop\Primer\Events\Event;
 use Rareloop\Primer\Primer;
+use Rareloop\Primer\TemplateEngine\Twig\Loader;
 
 class Twig extends \Twig_Environment
 {
@@ -15,8 +15,12 @@ class Twig extends \Twig_Environment
      */
     public function __construct()
     {
+        $primerLoader = new Loader();
+
         // Setup the loader to look from the base directory
-        $loader = new \Twig_Loader_Filesystem([Primer::$PATTERN_PATH, Primer::$VIEW_PATH, Primer::$BASE_PATH]);
+        $fileSystemLoader = new \Twig_Loader_Filesystem([Primer::$PATTERN_PATH, Primer::$VIEW_PATH, Primer::$BASE_PATH]);
+
+        $loader = new \Twig_Loader_Chain([$fileSystemLoader, $primerLoader]);
 
         // Create the engine with the correct cache path and set it to
         // invalidate the cache when a template changes
