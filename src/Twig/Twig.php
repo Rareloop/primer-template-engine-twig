@@ -1,6 +1,5 @@
 <?php namespace Rareloop\Primer\TemplateEngine\Twig;
 
-use Rareloop\Primer\TemplateEngine\Twig\IncTokenParser;
 use Rareloop\Primer\Events\Event;
 use Rareloop\Primer\Primer;
 use Rareloop\Primer\TemplateEngine\Twig\Loader;
@@ -28,9 +27,6 @@ class Twig extends \Twig_Environment
             'cache' => Primer::$CACHE_PATH,
             'auto_reload' => true,
         ));
-
-        // Register our custom {% inc %} tag
-        $this->addTokenParser(new IncTokenParser());
     }
 
     /**

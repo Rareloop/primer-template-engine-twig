@@ -6,11 +6,17 @@
         "twig/twig": "~1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.8.*"
+        "rareloop/primer-core": "dev-refactor"
     },
     "autoload": {
         "psr-4": {
             "Rareloop\\Primer\\TemplateEngine\\Twig\\": "src/Twig"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:joelambert/primer-core.git"
+        }
+    ]
 }
