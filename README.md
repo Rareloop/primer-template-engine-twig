@@ -21,9 +21,9 @@ A template engine for [Primer](http://github.com/rareloop/primer) that uses Twig
 3. Modify your `bootstrap/start.php` file and change the `Primer::start` call to include the `templateClass` e.g.
     
     ````php
-    $primer = \Rareloop\Primer\Primer::start(array(
+    $primer = Primer::start(array(
         'basePath' => __DIR__.'/..', 
-        'templateClass' => 'Rareloop\Primer\TemplateEngine\Blade\Template'
+        'templateClass' => Rareloop\Primer\TemplateEngine\Blade\Template::class
     ));
     ````
 
@@ -33,35 +33,25 @@ A template engine for [Primer](http://github.com/rareloop/primer) that uses Twig
 
 ### Including patterns within one another
 
-Any pattern can be included within another by using a custom Twig helper, e.g.
+Any pattern can be included within another by using the standard `include` syntax, e.g.
 
 ````twig
 <div class="sub-pattern">
-    {% inc 'elements/forms/input' %}
+    {% include 'elements/forms/input' %}
 </div>
 ````
 
-The `inc` helper is compatible with the standard `{% include %}` [Twig syntax](http://twig.sensiolabs.org/doc/tags/include.html) except that it will also load default pattern data too. If you want to override the data passed into the included pattern from the parent pattern you can pass in an object to be used as the context for the pattern.
-
-````twig
-{% inc elements/forms/input with { 'title': 'Inline data' } %}
-````
-
-Data available in the child pattern is resolved as follows:
-
-- Default pattern data loaded from included patterns `data.json` *(lowest priority)*
-- Current pattern context
-- Inline data passed in via the `inc` function *(highest priority)*
+More information on using `{% include %}` and manipulating the passed in context can be found on the [Twig website](http://twig.sensiolabs.org/doc/tags/include.html).
 
 ### Twig Template Cache
 
 By default Primer uses a directory called `cache` inside the project root for cache files. To change this to somewhere else you can set an alternative when you start Primer in `bootstrap/start.php`, e.g.
 
 ````php
-$primer = \Rareloop\Primer\Primer::start(array(
+$primer = Primer::start(array(
     'basePath' => __DIR__.'/..', 
     'cachePath' => 'absolute/path/to/cache/dir',
-    'templateClass' => 'Rareloop\Primer\TemplateEngine\Blade\Template',
+    'templateClass' => Rareloop\Primer\TemplateEngine\Blade\Template::class,
 ));
 
 ````
