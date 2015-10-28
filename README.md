@@ -27,7 +27,7 @@ A template engine for [Primer](http://github.com/rareloop/primer) that uses Twig
     ));
     ````
 
-4. Replace all `.hbs` files in your patterns and views with `.twig' files. If you don't want to do this by hand you can download the base Primer files in Twig format from [this repo [TODO]](http://).
+4. Replace all `.hbs` files in your patterns and views with `.twig' files. If you don't want to do this by hand you can download the base Primer files in Twig format from [this repo](https://github.com/Rareloop/primer-patterns-twig).
 
 ## Usage
 
