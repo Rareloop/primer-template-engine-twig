@@ -1,5 +1,7 @@
 # Twig Template Engine for Primer
 
+![CI](https://travis-ci.org/Rareloop/primer-template-engine-twig.svg)
+
 A template engine for [Primer](http://github.com/rareloop/primer) that uses Twig rather than the deafult (Handlebars).
 
 ## Installation
