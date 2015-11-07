@@ -1,8 +1,9 @@
 {
     "name": "rareloop/primer-template-engine-twig",
     "description": "Twig template engine for Primer",
-    
+
     "require": {
+        "php": ">=5.5",
         "twig/twig": "~1.0"
     },
     "require-dev": {
