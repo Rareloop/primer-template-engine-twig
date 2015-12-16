@@ -45,6 +45,29 @@ Any pattern can be included within another by using the standard `include` synta
 
 More information on using `{% include %}` and manipulating the passed in context can be found on the [Twig website](http://twig.sensiolabs.org/doc/tags/include.html).
 
+### Extending Templates
+By default, Primer will wrap all page Templates with a common View (`views/template.twig`). When using `{% extends %}` this wrapping is sometimes undesirable, in such circumstances you can disable this behaviour in a couple of ways.
+
+1. On a per page Template basis. Add the following to the Templates `data.json` file:
+
+    ```
+    {
+        "primer": {
+            "view": "custom-view"
+        }
+    }
+    ```
+2. Site wide. Add `wrapTemplate: false` to the `Primer::start` call in `bootstrap/start.php`, e.g.
+    ```php
+    $primer = Primer::start([
+        'basePath' => __DIR__.'/..',
+    
+        'templateClass' => TwigTemplateEngine::class,
+        'wrapTemplate' => false,
+    ]);
+    ```
+
+
 ### Twig Template Cache
 
 By default Primer uses a directory called `cache` inside the project root for cache files. To change this to somewhere else you can set an alternative when you start Primer in `bootstrap/start.php`, e.g.
