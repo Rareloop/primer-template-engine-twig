@@ -25,7 +25,7 @@ A template engine for [Primer](http://github.com/rareloop/primer) that uses Twig
     ````php
     $primer = Primer::start(array(
         'basePath' => __DIR__.'/..', 
-        'templateClass' => Rareloop\Primer\TemplateEngine\Blade\Template::class
+        'templateClass' => Rareloop\Primer\TemplateEngine\Blade\Template::class,
     ));
     ````
 
