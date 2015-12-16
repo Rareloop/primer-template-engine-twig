@@ -99,4 +99,14 @@ class PatternTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($output, 'child');
     }
+
+    /**
+     * Test that includes work when .twig extension is included
+     */
+    public function testPartialWithTwigExtension()
+    {
+        $output = $this->primer->getPatterns(array('components/test-group/include-with-twig-extension'), false);
+
+        $this->assertEquals($output, 'Basic pattern with no data');
+    }
 }

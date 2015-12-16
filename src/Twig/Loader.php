@@ -18,6 +18,9 @@ class Loader implements \Twig_LoaderInterface
     {
         $id = Primer::cleanId($name);
 
+        // Remove the extension at this point as we add it ourselves
+        $id = rtrim($id, '.' . Template::$extension);
+
         $path = Primer::$PATTERN_PATH . '/' . $id . '/template.' . Template::$extension;
 
         if (file_exists($path)) {
