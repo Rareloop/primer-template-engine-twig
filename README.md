@@ -15,7 +15,7 @@ A template engine for [Primer](http://github.com/rareloop/primer) that uses Twig
     with:
 
     ````json
-    "rareloop/primer-template-engine-twig": "dev-master"
+    "rareloop/primer-template-engine-twig": "1.0.*"
     ````
 
 2. Run `composer update`.
