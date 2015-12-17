@@ -16,10 +16,8 @@ class Loader implements \Twig_LoaderInterface
      */
     public function getSource($name)
     {
-        $id = Primer::cleanId($name);
-
         // Remove the extension at this point as we add it ourselves
-        $id = rtrim($id, '.' . Template::$extension);
+        $id = preg_replace('/\.' . Template::$extension . '$/', '', $name);
 
         $path = Primer::$PATTERN_PATH . '/' . $id . '/template.' . Template::$extension;
 
@@ -28,7 +26,6 @@ class Loader implements \Twig_LoaderInterface
         } else {
             throw new \Twig_Error_Loader("Could not find a template to match `$name`");
         }
-
     }
 
     /**
