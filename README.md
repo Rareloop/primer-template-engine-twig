@@ -25,7 +25,7 @@ A template engine for [Primer](http://github.com/rareloop/primer) that uses Twig
     ````php
     $primer = Primer::start(array(
         'basePath' => __DIR__.'/..', 
-        'templateClass' => Rareloop\Primer\TemplateEngine\Blade\Template::class,
+        'templateClass' => Rareloop\Primer\TemplateEngine\Twig\Template::class,
     ));
     ````
 
@@ -76,7 +76,7 @@ By default Primer uses a directory called `cache` inside the project root for ca
 $primer = Primer::start(array(
     'basePath' => __DIR__.'/..', 
     'cachePath' => 'absolute/path/to/cache/dir',
-    'templateClass' => Rareloop\Primer\TemplateEngine\Blade\Template::class,
+    'templateClass' => Rareloop\Primer\TemplateEngine\Twig\Template::class,
 ));
 
 ````
