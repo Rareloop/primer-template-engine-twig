@@ -69,7 +69,7 @@ class PatternTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($output, 'Inlined data.');
     }
-    
+
     /**
      * Test when passing a variable to interpolate into a partial (e.g. title=subTitle instead of title='The subtitle')
      */
@@ -108,5 +108,21 @@ class PatternTest extends \PHPUnit_Framework_TestCase
         $output = $this->primer->getPatterns(array('components/test-group/include-with-twig-extension'), false);
 
         $this->assertEquals($output, 'Basic pattern with no data');
+    }
+
+    /**
+     * Test that patterns load when BASE_PATH isn't a parent of PATTERN_PATH
+     */
+    public function testBasePathIsNotParentOfPatternPath()
+    {
+        $testPrimer = \Rareloop\Primer\Primer::start(array(
+            'basePath' => __DIR__.'/primer-test',
+            'patternPath' => __DIR__.'/patterns',
+            'templateClass' => Template::class,
+        ));
+
+        $output = $testPrimer->getPatterns(array('elements/test-group/test'), false);
+
+        $this->assertEquals($output, 123);
     }
 }

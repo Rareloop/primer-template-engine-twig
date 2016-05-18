@@ -55,12 +55,8 @@ class Template extends PrimerTemplate
     protected function templatePath()
     {
         if (isset($this->filename)) {
-            // The Twig loader is setup to load from the Primer base path so we need to remove this
-            // from the template path so that we have it relative to the base
-            $path = str_replace(Primer::$BASE_PATH, '', $this->directory);
-
             // Render the template
-            return $path . '/'. $this->filename . '.' . self::$extension;
+            return $this->directory . '/'. $this->filename . '.' . self::$extension;
         } else {
             throw new \Exception('Attempting to get template path before loading a template');
         }

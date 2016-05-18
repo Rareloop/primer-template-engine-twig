@@ -16,13 +16,8 @@ class Loader implements \Twig_LoaderInterface
      */
     public function getSource($name)
     {
-        // Remove the extension at this point as we add it ourselves
-        $id = preg_replace('/\.' . Template::$extension . '$/', '', $name);
-
-        $path = Primer::$PATTERN_PATH . '/' . $id . '/template.' . Template::$extension;
-
-        if (file_exists($path)) {
-            return file_get_contents($path);
+        if (file_exists($name)) {
+            return file_get_contents($name);
         } else {
             throw new \Twig_Error_Loader("Could not find a template to match `$name`");
         }
