@@ -51,6 +51,7 @@ class PatternTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @group failing
      * Include one pattern in another
      */
     public function testIncludeFunction()

@@ -17,7 +17,11 @@ class Twig extends \Twig_Environment
         $primerLoader = new Loader();
 
         // Setup the loader to look from the base directory
-        $fileSystemLoader = new \Twig_Loader_Filesystem([Primer::$PATTERN_PATH, Primer::$VIEW_PATH, Primer::$BASE_PATH]);
+        $fileSystemLoader = new \Twig_Loader_Filesystem([
+            Primer::$PATTERN_PATH,
+            Primer::$VIEW_PATH,
+            Primer::$BASE_PATH
+        ]);
 
         $loader = new \Twig_Loader_Chain([$fileSystemLoader, $primerLoader]);
 
