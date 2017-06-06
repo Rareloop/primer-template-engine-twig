@@ -44,7 +44,7 @@ class Template extends PrimerTemplate
         // Access the singleton Twig engine
         $engine = Twig::instance();
 
-        return $engine->getLoader()->getSource($this->templatePath());
+        return $engine->getLoader()->getSourceContext($this->templatePath());
     }
 
     /**
